@@ -1,0 +1,2 @@
+class MoistureSensorReading < ApplicationRecord
+end

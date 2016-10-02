@@ -1,0 +1,2 @@
+module MoistureSensorReadingsHelper
+end
