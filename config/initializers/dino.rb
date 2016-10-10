@@ -6,7 +6,7 @@ last_time = Time.now
 moisture_sensor.when_data_received do |data|
   if Time.now - last_time > 5.seconds
     puts data
-    # MoistureSensorReading.create(measurement: data)
+    MoistureSensorReading.create(measurement: data)
     if data.to_i < SystemSettings.instance.moisture_threshold
       puts "it's dry water now!"
       sprinkler.send(:on)
