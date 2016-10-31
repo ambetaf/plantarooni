@@ -1,0 +1,15 @@
+Moisture Threshold: <%= @moisture_threshold %>
+<%= form_tag system_settings_update_path, method: :put, class: "" do %>
+  Change Moisture Sensor Threshold:
+  <%= text_field_tag(
+    :moisture_threshold,
+    params[:moisture_threshold],
+    value: @moisture_threshold,
+    class: ""
+  ) %>
+  <!-- insert line break -->
+  <br>
+  <%= submit_tag(
+    'Save Changes'
+  ) %>
+<% end %>
