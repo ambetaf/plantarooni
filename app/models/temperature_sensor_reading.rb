@@ -1,0 +1,2 @@
+class TemperatureSensorReading < ApplicationRecord
+end
