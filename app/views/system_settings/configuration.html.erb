@@ -1,5 +1,5 @@
-Moisture Threshold: <%= @moisture_threshold %>
 <%= form_tag system_settings_update_path, method: :put, class: "" do %>
+<p>Moisture Threshold: <%= @moisture_threshold %></p>
   Change Moisture Sensor Threshold:
   <%= text_field_tag(
     :moisture_threshold,
@@ -9,6 +9,15 @@ Moisture Threshold: <%= @moisture_threshold %>
   ) %>
   <!-- insert line break -->
   <br>
+  <p>Temperature Threshold: <%= @temperature_threshold %></p>
+    Change Temperature Sensor Threshold:
+    <%= text_field_tag(
+      :temperature_threshold,
+      params[:temperature_threshold],
+      value: @temperature_threshold,
+      class: ""
+    ) %>
+    <br>
   <%= submit_tag(
     'Save Changes'
   ) %>

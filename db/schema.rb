@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20161110060128) do
   create_table "system_settings", force: :cascade do |t|
     t.integer  "singleton_guard"
     t.integer  "moisture_threshold"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.float    "temperature_threshold"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "temperature_sensor_readings", force: :cascade do |t|
