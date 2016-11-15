@@ -1,0 +1,2 @@
+module TemperatureSensorReadingsHelper
+end
