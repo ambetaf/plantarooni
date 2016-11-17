@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20161110055721) do
 
   create_table "humidity_sensor_readings", force: :cascade do |t|
-    t.float    "measurement"
+    t.integer  "measurement"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
