@@ -1,0 +1,7 @@
+<% @readings.each do |reading| %>
+  <div class="reading">
+    <p>
+      <%= reading.measurement %> ------ <%= reading.created_at %>
+    </p>
+  </div>
+<% end %>
