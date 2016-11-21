@@ -1,0 +1,2 @@
+class HumiditySensorReading < ApplicationRecord
+end

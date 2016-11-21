@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161110060128) do
+=======
+ActiveRecord::Schema.define(version: 20161110055721) do
+
+  create_table "humidity_sensor_readings", force: :cascade do |t|
+    t.integer  "measurement"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+>>>>>>> humidity
 
   create_table "moisture_sensor_readings", force: :cascade do |t|
     t.integer  "measurement"
