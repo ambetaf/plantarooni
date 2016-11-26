@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'moisture_sensor_readings#index'
   get '/moisture_readings', to: 'moisture_sensor_readings#index', as: 'moisture_readings'
   get '/temperature_readings', to: 'temperature_sensor_readings#index', as: 'temperature_readings'
+  get '/humidity_readings', to: 'humidity_sensor_readings#index', as: 'humidity_readings'
   get '/system_settings', to: 'system_settings#configuration', as: 'system_settings_configuration'
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
 end
