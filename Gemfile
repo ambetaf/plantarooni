@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dino'
 
+gem 'wdm', '>=0.1.0'
+
 gem 'bootstrap-sass'
 
 # gem 'dht-sensor-ffi'

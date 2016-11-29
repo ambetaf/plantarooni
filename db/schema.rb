@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117062434) do
+ActiveRecord::Schema.define(version: 20161129085700) do
+
+  create_table "Plants", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "humidity_threshold"
+    t.integer  "moisture_threshold"
+    t.integer  "temperature_threshold"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "humidity_sensor_readings", force: :cascade do |t|
     t.integer  "measurement"
