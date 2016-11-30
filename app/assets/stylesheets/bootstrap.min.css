@@ -5795,10 +5795,16 @@ position:absolute;
 bottom:0;
 left:0;
 }
+#header {
+	padding:10px;
+}
 
 #content {
-padding:10px;
 padding-bottom:80px;   /* Height of the footer element */
 }
+* {
+    box-sizing: border-box;
+}
+
 
 /*# sourceMappingURL=bootstrap.min.css.map */
