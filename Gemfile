@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dino'
 
-gem 'wdm', '>=0.1.0'
 
 gem 'bootstrap-sass'
 
@@ -53,3 +52,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sorcery'
+
+platforms :mswin do
+  gem "wdm", :group => [:development, :test, :production]
+end
