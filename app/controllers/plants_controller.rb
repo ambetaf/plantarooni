@@ -3,6 +3,7 @@ class PlantsController < ApplicationController
     @plants = Plant.all
   end
 
+<<<<<<< HEAD
 
   def show
     @plant = Plant.find(params[:id])
@@ -47,4 +48,10 @@ class PlantsController < ApplicationController
   def plant_params
       params.permit(:name, :moisture_threshold, :temperature_threshold, :humidity_threshold)
   end
+
+  def update_threshold
+    plant = Plant.find(params[:id])
+    SystemSettings.instance.update(humidity_threshold: plant.humidity_threshold, moisture_threshold: plant.moisture_threshold, temperature_threshold: plant.temperature_threshold)
+  end
+
 end

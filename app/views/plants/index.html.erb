@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% @plants.each do |plant| %>
   <div class="reading">
     <p>
@@ -6,5 +7,15 @@
     <%= form_for(plant, :html => { :method => :delete, :remote => true }) do |f| %>
     <%= f.submit :value => "Delete" %>
     <% end %>
+
+<div class="reading">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Plant
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <% @plants.each do |plant| %>
+        <li><%= link_to plant.name, update_threshold_path(:id => plant.id) %></li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>

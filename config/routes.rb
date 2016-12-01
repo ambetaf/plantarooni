@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :users
+  resources :plants
 
   resources :plants
 
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get '/temperature_readings', to: 'temperature_sensor_readings#index', as: 'temperature_readings'
   get '/humidity_readings', to: 'humidity_sensor_readings#index', as: 'humidity_readings'
   get '/select_plant', to: 'plants#index', as: 'select_plants'
+  get '/update_threshold/:id', to: 'plants#update_threshold', as: 'update_threshold'
   get '/system_settings', to: 'system_settings#configuration', as: 'system_settings_configuration'
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
 end
