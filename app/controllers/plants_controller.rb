@@ -3,7 +3,6 @@ class PlantsController < ApplicationController
     @plants = Plant.all
   end
 
-<<<<<<< HEAD
 
   def show
     @plant = Plant.find(params[:id])
