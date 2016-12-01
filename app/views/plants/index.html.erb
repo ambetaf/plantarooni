@@ -3,5 +3,8 @@
     <p>
       <%= plant.name %>
     </p>
+    <%= form_for(plant, :html => { :method => :delete, :remote => true }) do |f| %>
+    <%= f.submit :value => "Delete" %>
+    <% end %>
   </div>
 <% end %>

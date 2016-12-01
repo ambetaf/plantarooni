@@ -1,0 +1,10 @@
+<h1>Editing Plant</h1>
+
+<%= form_for(@plant) do |f| %>
+<%= render 'form'%>
+<%= submit_tag "Update Plant", :class => "button buttonBlue" %>
+<% end %>
+
+
+<%= link_to 'Show', @plant %> |
+<%= link_to 'Back', plants_path %>
