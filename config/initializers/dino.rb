@@ -1,3 +1,20 @@
+class DhtSensorWorker
+  include Sidekiq::Worker
+  def perform(name)
+    case name
+    when 'dht-sensor'
+      loop do
+        val = DhtSensor.read(4, 11)
+        puts val.temp
+        puts val.temp_f
+        puts val.humidity
+        sleep 1
+      end
+    else
+      puts ':('
+    end
+  end
+end
 
 # board = Dino::Board.new(Dino::TxRx::Serial.new)
 # moisture_sensor = Dino::Components::Sensor.new(pin: 'A0', board: board)
@@ -7,7 +24,6 @@
 
 DhtSensorWorker.perform_async('dht-sensor')
 
-#
 # moisture_sensor_time = Time.now
 # moisture_sensor.when_data_received do |data|
 #   if Time.now - moisture_sensor_time > 5.seconds
