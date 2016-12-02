@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thesis</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Thesis</title>
+  <%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
+    <%= stylesheet_link_tag    'default', media: 'all' %>
+      <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+              <% if current_user %>
+                <li><a href="/moisture_readings">Moisture</a></li>
+                <li><a href="/temperature_readings">Temperature</a></li>
+                <li><a href="/humidity_readings">Humidity</a></li>
+                <li><a href="/select_plant">Select Plant</a></li>
+                <li><a href="/system_settings">System Settings</a></li>
+                <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+              <% if current_user %>
+                <li>
+                  <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+                </li>
+                <li>
+                  <%= link_to "Logout", :logout, method: :post %>
+                </li>
+                <% else %>
+                  <li>
+                    <%= link_to "Register", new_user_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Login", :login %>
+                  </li>
+                  <% end %>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div>
+      <p id="notice">
+        <%= flash[:notice] %>
+      </p>
+      <p id="alert">
+        <%= flash[:alert] %>
+      </p>
+    </div>
+
+
+    <div class="text-center" id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <%= render 'layouts/footer' %>
+    </div>
+  </div>
+
+</body>
+
 </html>

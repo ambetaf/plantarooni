@@ -1,0 +1,20 @@
+
+<%= form_tag user_sessions_path, :method => :post do %>
+
+<div class="group">
+  <%= text_field_tag :username %>
+  <span class="highlight"></span>
+  <span class="bar"></span>
+  <%= label_tag :username%>
+</div>
+<div class="group">
+  <%= password_field_tag :password %>
+  <span class="highlight"></span>
+  <span class="bar"></span>
+  <%= label_tag :password %>
+</div>
+
+<%= submit_tag "Login", :class => "button buttonBlue" %>
+
+<%= link_to 'Back', user_sessions_path %>
+<% end %>

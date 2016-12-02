@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  humidity_threshold: 1
+  moisture_threshold: 1
+  temperature_sensor: 1
+
+two:
+  name: MyString
+  humidity_threshold: 1
+  moisture_threshold: 1
+  temperature_sensor: 1
