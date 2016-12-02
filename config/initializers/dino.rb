@@ -4,7 +4,7 @@
 # temperature_sensor = Dino::Components::Sensor.new(pin: 'A1', board: board)
 # cooling_fan = Dino::Components::Led.new(pin: 12, board: board)
 
-DhtSensorWorker.perform_async('dht-sensor')
+DhtSensorJob.perform_async
 
 # moisture_sensor_time = Time.now
 # moisture_sensor.when_data_received do |data|

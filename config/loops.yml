@@ -1,0 +1,3 @@
+loops:
+  dht_sensor:
+    sleep_period: 5
