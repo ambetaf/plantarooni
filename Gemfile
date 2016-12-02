@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'dino'
 gem 'bootstrap-sass'
-gem 'sidekiq'
 # gem 'dht-sensor-ffi'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
