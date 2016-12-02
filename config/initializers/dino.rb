@@ -1,21 +1,3 @@
-class DhtSensorWorker
-  include Sidekiq::Worker
-  def perform(name)
-    case name
-    when 'dht-sensor'
-      loop do
-        val = DhtSensor.read(4, 11)
-        puts val.temp
-        puts val.temp_f
-        puts val.humidity
-        sleep 1
-      end
-    else
-      puts ':('
-    end
-  end
-end
-
 # board = Dino::Board.new(Dino::TxRx::Serial.new)
 # moisture_sensor = Dino::Components::Sensor.new(pin: 'A0', board: board)
 # sprinkler = Dino::Components::Led.new(pin: 13, board: board)
