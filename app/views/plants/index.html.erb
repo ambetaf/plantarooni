@@ -1,12 +1,5 @@
-<% @plants.each do |plant| %>
-  <div class="reading">
-    <p>
-      <%= plant.name %>
-    </p>
-    <%= form_for(plant, :html => { :method => :delete, :remote => true }) do |f| %>
-    <%= f.submit :value => "Delete" %>
-    <% end %>
-  <% end %>
+
+
 <div class="reading">
   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Plant
@@ -18,4 +11,14 @@
     </ul>
   </div>
 </div>
-</div>
+
+<!-- <% @plants.each do |plant| %>
+  <div class="reading">
+    <p>
+      <%= plant.name %>
+    </p>
+      <%= form_for(plant, :html => { :method => :delete, :remote => true }) do |f| %>
+      <%= f.submit :value => "Delete" %>
+      <% end %>
+  <% end %>
+  </div> -->
