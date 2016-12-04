@@ -1,23 +1,35 @@
-<%= form_tag system_settings_update_path, method: :put, class: "" do %>
+<%= form_tag system_settings_update_path, method: :put, class: "group" do %>
+<div class="group">
 <p>Moisture Threshold: <%= @moisture_threshold %></p>
-  Change Moisture Sensor Threshold:
-  <%= text_field_tag(
-    :moisture_threshold,
-    params[:moisture_threshold],
-    value: @moisture_threshold,
-    class: ""
-  ) %>
-  <!-- insert line break -->
-  <br>
-  <p>Temperature Threshold: <%= @temperature_threshold %></p>
-    Change Temperature Sensor Threshold:
+    Change Moisture Sensor Threshold:
     <%= text_field_tag(
-      :temperature_threshold,
-      params[:temperature_threshold],
-      value: @temperature_threshold,
+      :moisture_threshold,
+      params[:moisture_threshold],
+      value: @moisture_threshold,
       class: ""
     ) %>
-    <br>
+</div>
+  <div class="group">
+  <p>Temperature Threshold: <%= @temperature_threshold %></p>
+      Change Temperature Sensor Threshold:
+      <%= text_field_tag(
+        :temperature_threshold,
+        params[:temperature_threshold],
+        value: @temperature_threshold,
+        class: ""
+      ) %>
+  </div>
+    <div>
+    <p>Humidity Threshold: <%= @humidity_threshold %></p>
+        Change Humidity Sensor Threshold:
+        <%= text_field_tag(
+          :humidity_threshold,
+          params[:humidity_threshold],
+          value: @humidity_threshold,
+          class: ""
+        ) %>
+    </div>
+      <br>
   <%= submit_tag(
     'Save Changes'
   ) %>
