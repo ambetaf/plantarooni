@@ -11,6 +11,7 @@ class SystemSettingsController < ApplicationController
     @humidity_threshold = SystemSettings.instance.humidity_threshold
     if SystemSettings.instance.update(settings_params) # if success
       redirect_to system_settings_configuration_path
+      flash.now[:alert] = 'Failed to create plant'
     else # if not
       render :configuration
     end

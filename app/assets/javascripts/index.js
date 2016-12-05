@@ -5,7 +5,7 @@ $(window, document, undefined).ready(function() {
     if ($this.val())
       $this.addClass('used');
     else
-      $this.removeClass('used');  
+      $this.removeClass('used');
   });
 
   $('input').blur()

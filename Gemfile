@@ -54,3 +54,5 @@ gem 'sorcery'
 platforms :mswin do
   gem "wdm", :group => [:development, :test, :production]
 end
+
+gem 'toastr-rails'
