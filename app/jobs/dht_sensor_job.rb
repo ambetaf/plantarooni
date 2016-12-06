@@ -1,12 +1,23 @@
 class DhtSensorJob
   include SuckerPunch::Job
 
-  def perform
+  def perform(board, cooling_fan, exhaust_fan)
     while true
       val = DhtSensor.read(4, 11)
-      puts val.temp
-      puts val.temp_f
-      puts val.humidity
+      TemperatureSensorReading.create(measurement: val.temp)
+      HumiditySensorReading.create(measurement: val.humidity)
+      unless SystemSettings.instance.manual_control
+        if val.temp > SystemSettings.instance.temperature_threshold
+          cooling_fan.send(:on)
+        else
+          cooling_fan.send(:off)
+        end
+        if val.humidity > SystemSettings.instance.humidity_threshold
+          exhaust_fan.send(:on)
+        else
+          exhaust_fan.send(:off)
+        end
+      end
       sleep 5
     end
   end

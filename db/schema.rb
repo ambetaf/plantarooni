@@ -37,14 +37,13 @@ ActiveRecord::Schema.define(version: 20161206061217) do
     t.integer  "singleton_guard"
     t.integer  "moisture_threshold"
     t.float    "temperature_threshold"
-    t.float    "humidity_threshold"
     t.boolean  "manual_control"
     t.boolean  "sprinkler_manual_on"
     t.boolean  "cooling_manual_on"
     t.boolean  "exhaust_manual_on"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.float    "humidity_threshold"
+    t.integer  "humidity_threshold"
   end
 
   create_table "temperature_sensor_readings", force: :cascade do |t|
