@@ -13,11 +13,7 @@ begin
       MoistureSensorReading.create(measurement: data)
       moisture_sensor_time = Time.now
       break if SystemSettings.instance.manual_control
-      if data.to_i < SystemSettings.instance.moisture_threshold
-        sprinkler.send(:on)
-      else
-        sprinkler.send(:off)
-      end
+      sprinkler.send(data.to_i < SystemSetting.instance.moisture_threshold ? :on : :off)
     end
   end
 rescue Dino::BoardNotFound

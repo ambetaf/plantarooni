@@ -16,11 +16,11 @@ class SystemSettingsController < ApplicationController
   def toggle
     SystemSettings.toggle_manual_control
   end
-
+#TODO: add post actions to each switch
   private
 
     def settings_params
-      params.permit(:moisture_threshold, :temperature_threshold, :humidity_threshold, :sprinkler_manual_on, :cooling_manual_on, :exhaust_manual_on)
+      params.permit(:moisture_threshold, :temperature_threshold, :humidity_threshold)
     end
 
     def find_settings
