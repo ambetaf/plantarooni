@@ -20,7 +20,7 @@ class SystemSettingsController < ApplicationController
   private
 
     def settings_params
-      params.permit(:moisture_threshold, :temperature_threshold, :humidity_threshold)
+      params.permit(:moisture_threshold, :temperature_threshold, :humidity_threshold, :sprinkler_manual_on, :cooling_manual_on, :exhaust_manual_on)
     end
 
     def find_settings

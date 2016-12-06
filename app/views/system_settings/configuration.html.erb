@@ -1,10 +1,14 @@
 <%= form_tag system_settings_update_path, method: :put, class: "group" do %>
   <p>Manual Override:
   <%= check_box_tag :manual_control, 'manual_control', @manual_control, id: 'override' %>
+  <!-- TODO: Put hide and show jquery -->
   <% if @manual_control %>
-    <p>Sprinkler: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
-    <p>Cooling Fan: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
-    <p>Exhaust Fan: <%= @exhaust_manual_on ? 'ON' : 'OFF' %></p>
+    <p>Sprinkler:
+    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @manual_control, class: 'bsswitch' %>
+    <p>Cooling Fan:
+    <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, class: 'bsswitch' %>
+    <p>Exhaust Fan:
+    <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, class: 'bsswitch' %>
   <% else %>
     <div class="group">
       <p>Moisture Threshold: <%= @moisture_threshold %></p>
