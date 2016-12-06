@@ -7,16 +7,8 @@ class DhtSensorJob
       TemperatureSensorReading.create(measurement: val.temp)
       HumiditySensorReading.create(measurement: val.humidity)
       unless SystemSettings.instance.manual_control
-        if val.temp > SystemSettings.instance.temperature_threshold
-          cooling_fan.send(:on)
-        else
-          cooling_fan.send(:off)
-        end
-        if val.humidity > SystemSettings.instance.humidity_threshold
-          exhaust_fan.send(:on)
-        else
-          exhaust_fan.send(:off)
-        end
+        cooling_fan.send(val.temp > SystemSettings.instance.temperature_threshold ? :on : :off)
+        exhaust_fan.send(val.humidity > SystemSettings.instance.humidity_threshold ? :on : :off)
       end
       sleep 5
     end

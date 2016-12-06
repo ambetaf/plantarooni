@@ -1,42 +1,41 @@
 <%= form_tag system_settings_update_path, method: :put, class: "group" do %>
-  <p>Manual Override: <%= @manual_control ? 'ON' : 'OFF' %></p>
+  <p>Manual Override:
+  <%= check_box_tag :manual_control, 'manual_control', @manual_control, id: 'override' %>
   <% if @manual_control %>
     <p>Sprinkler: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
     <p>Cooling Fan: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
     <p>Exhaust Fan: <%= @exhaust_manual_on ? 'ON' : 'OFF' %></p>
   <% else %>
-  <div class="group">
-    <p>Moisture Threshold: <%= @moisture_threshold %></p>
-    Change Moisture Sensor Threshold:
-    <%= text_field_tag(
-      :moisture_threshold,
-      params[:moisture_threshold],
-      value: @moisture_threshold,
-      class: ""
-    ) %>
-  </div>
-  <div class="group">
-    <p>Temperature Threshold: <%= @temperature_threshold %></p>
-    Change Temperature Sensor Threshold:
-    <%= text_field_tag(
-      :temperature_threshold,
-      params[:temperature_threshold],
-      value: @temperature_threshold,
-      class: ""
-    ) %>
-  </div>
-  <div class="group">
-    <p>Humidity Threshold: <%= @humidity_threshold %></p>
-    Change Humidity Sensor Threshold:
-    <%= text_field_tag(
-      :humidity_threshold,
-      params[:humidity_threshold],
-      value: @humidity_threshold,
-      class: ""
-    ) %>
-  </div>
-  <%= submit_tag(
-    'Save Changes'
-  ) %>
+    <div class="group">
+      <p>Moisture Threshold: <%= @moisture_threshold %></p>
+      Change Moisture Sensor Threshold:
+      <%= text_field_tag(
+        :moisture_threshold,
+        params[:moisture_threshold],
+        value: @moisture_threshold,
+        class: ""
+      ) %>
+    </div>
+    <div class="group">
+      <p>Temperature Threshold: <%= @temperature_threshold %></p>
+      Change Temperature Sensor Threshold:
+      <%= text_field_tag(
+        :temperature_threshold,
+        params[:temperature_threshold],
+        value: @temperature_threshold,
+        class: ""
+      ) %>
+    </div>
+    <div class="group">
+      <p>Humidity Threshold: <%= @humidity_threshold %></p>
+      Change Humidity Sensor Threshold:
+      <%= text_field_tag(
+        :humidity_threshold,
+        params[:humidity_threshold],
+        value: @humidity_threshold,
+        class: ""
+      ) %>
+    </div>
+  <% end %>
   <%= submit_tag('Save Changes') %>
 <% end %>

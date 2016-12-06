@@ -12,7 +12,7 @@ begin
     if Time.now - moisture_sensor_time > 5.seconds
       MoistureSensorReading.create(measurement: data)
       moisture_sensor_time = Time.now
-      break unless SystemSettings.instance.manual_control
+      break if SystemSettings.instance.manual_control
       if data.to_i < SystemSettings.instance.moisture_threshold
         sprinkler.send(:on)
       else

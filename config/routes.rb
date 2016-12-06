@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/update_threshold/:id', to: 'plants#update_threshold', as: 'update_threshold'
   get '/system_settings', to: 'system_settings#configuration', as: 'system_settings_configuration'
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
+  post '/system_settings/toggle'
 end
