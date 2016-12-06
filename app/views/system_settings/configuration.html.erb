@@ -1,31 +1,34 @@
-<%= form_tag system_settings_update_path, method: :put, class: "" do %>
-  <p>Moisture Threshold: <%= @moisture_threshold %></p>
-  Change Moisture Sensor Threshold:
-  <%= text_field_tag(
-    :moisture_threshold,
-    params[:moisture_threshold],
-    value: @moisture_threshold,
-    class: "form-control"
-  ) %>
-  <br>
-  <p>Temperature Threshold: <%= @temperature_threshold %></p>
-  Change Temperature Sensor Threshold:
-  <%= text_field_tag(
-    :temperature_threshold,
-    params[:temperature_threshold],
-    value: @temperature_threshold,
-    class: "form-control"
-  ) %>
-  <br>
-  <p>Humidity Threshold: <%= @humidity_threshold %></p>
-  Change Humidity Sensor Threshold:
-  <%= text_field_tag(
-    :humidity_threshold,
-    params[:humidity_threshold],
-    value: @humidity_threshold,
-    class: "form-control"
-  ) %>
-  <br>
+<%= form_tag system_settings_update_path, method: :put, class: "group" do %>
+  <div class="group">
+    <p>Moisture Threshold: <%= @moisture_threshold %></p>
+    Change Moisture Sensor Threshold:
+    <%= text_field_tag(
+      :moisture_threshold,
+      params[:moisture_threshold],
+      value: @moisture_threshold,
+      class: ""
+    ) %>
+  </div>
+  <div class="group">
+    <p>Temperature Threshold: <%= @temperature_threshold %></p>
+    Change Temperature Sensor Threshold:
+    <%= text_field_tag(
+      :temperature_threshold,
+      params[:temperature_threshold],
+      value: @temperature_threshold,
+      class: ""
+    ) %>
+  </div>
+  <div class="group">
+    <p>Humidity Threshold: <%= @humidity_threshold %></p>
+    Change Humidity Sensor Threshold:
+    <%= text_field_tag(
+      :humidity_threshold,
+      params[:humidity_threshold],
+      value: @humidity_threshold,
+      class: ""
+    ) %>
+  </div>
   <%= submit_tag(
     'Save Changes'
   ) %>
