@@ -22,7 +22,7 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant.destroy
-    redirect_to('/', notice: "Plant was deleted!")
+    redirect_to('/', alert: "Plant was deleted!")
   end
 
   def new
@@ -32,7 +32,7 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     if @plant.save
-      redirect_to('/', notice: "Plant was created")
+      redirect_to('/', success: "Plant was created")
     else
       flash.now[:alert] = 'Failed to create plant'
       render action: 'new'
