@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  # TODO: gago ka bert
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # app/controllers/users_controller.rb
   skip_before_action :require_login, only: [:index, :new, :create]
 
 

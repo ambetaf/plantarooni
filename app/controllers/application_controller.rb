@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
+  # app/controllers/application_controller.rb
   protect_from_forgery with: :exception
-    # app/controllers/application_controller.rb
   before_action :require_login
 
   private
