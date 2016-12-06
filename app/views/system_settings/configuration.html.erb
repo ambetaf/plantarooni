@@ -1,4 +1,10 @@
 <%= form_tag system_settings_update_path, method: :put, class: "group" do %>
+  <p>Manual Override: <%= @manual_control ? 'ON' : 'OFF' %></p>
+  <% if @manual_control %>
+    <p>Sprinkler: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
+    <p>Cooling Fan: <%= @sprinkler_manual_on ? 'ON' : 'OFF' %></p>
+    <p>Exhaust Fan: <%= @exhaust_manual_on ? 'ON' : 'OFF' %></p>
+  <% else %>
   <div class="group">
     <p>Moisture Threshold: <%= @moisture_threshold %></p>
     Change Moisture Sensor Threshold:
@@ -32,4 +38,5 @@
   <%= submit_tag(
     'Save Changes'
   ) %>
+  <%= submit_tag('Save Changes') %>
 <% end %>

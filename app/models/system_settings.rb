@@ -15,4 +15,15 @@ class SystemSettings < ApplicationRecord
       row
     end
   end
+
+  def self.toggle_manual_control
+    self.instance.update(manual_control: !self.instance.manual_control)
+    if self.instance.manual_control
+      self.instance.update(
+        sprinkler_manual_on: false,
+        cooling_manual_on: false,
+        exhaust_manual_on: false
+      )
+    end
+  end
 end

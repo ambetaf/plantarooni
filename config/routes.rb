@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   resources :users
   resources :plants
 
-  resources :plants
-
-  get 'humidity_sensor_reading/index'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'moisture_sensor_readings#index'
   get '/moisture_readings', to: 'moisture_sensor_readings#index', as: 'moisture_readings'
