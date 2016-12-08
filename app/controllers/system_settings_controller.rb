@@ -4,19 +4,22 @@ class SystemSettingsController < ApplicationController
   end
 
   def update
-    byebug
-    # if SystemSettings.instance.update(settings_params) # if success
-    #   redirect_to system_settings_configuration_path
-    #   flash.now[:alert] = 'Failed to create plant'
-    # else # if not
-    #   render :configuration
-    # end
+    if SystemSettings.instance.update(settings_params) # if success
+      redirect_to system_settings_configuration_path
+      flash.now[:alert] = 'Failed to create plant'
+    else # if not
+      render :configuration
+    end
   end
 
   def toggle
     SystemSettings.toggle_manual_control
   end
-#TODO: add post actions to each switch
+
+  def toggle_appliance
+    SystemSettings.toggle(params[:appliance])
+  end
+
   private
 
     def settings_params

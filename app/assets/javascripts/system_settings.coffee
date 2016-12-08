@@ -5,6 +5,10 @@ jQuery ->
       window.location.replace(window.location.pathname)
       )
   )
-  $('#switch1').bootstrapSwitch('state', this.checked)
-  $('#switch2').bootstrapSwitch('state', this.checked)
-  $('#switch3').bootstrapSwitch('state', this.checked)
+  $('#exhaust_fan').bootstrapSwitch('state', this.checked)
+  $('#cooling_fan').bootstrapSwitch('state', this.checked)
+  $('#sprinkler').bootstrapSwitch('state', this.checked)
+
+  $('.switch').on('switchChange.bootstrapSwitch', (event, state) ->
+    $.post('/system_settings/toggle_appliance', {appliance: this.id})
+  )
