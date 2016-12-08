@@ -1,7 +1,30 @@
-<% @readings.each do |reading| %>
-  <div class="reading">
-    <p>
-      <%= reading.measurement %> ------ <%= reading.created_at %>
-    </p>
+<div class="row">
+  <div class="col-xs-6 col-sm-4"></div>
+  <div class="col-xs-6 col-sm-4">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Measurement</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <% @readings.each do |reading| %>
+      <!-- panami-a itsura -->
+      <tbody class="text-left">
+        <tr>
+          <td>
+            <%= reading.measurement %>
+          </td>
+          <td>
+            <%= reading.created_at.strftime("(%X)%Y-%m-%d") %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+
+    </table>
   </div>
-<% end %>
+
+  <div class="col-xs-6 col-sm-4"></div>
+</div>
