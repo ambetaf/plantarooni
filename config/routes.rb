@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :users
   resources :plants
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -16,4 +15,6 @@ Rails.application.routes.draw do
   get '/system_settings', to: 'system_settings#configuration', as: 'system_settings_configuration'
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
   post '/system_settings/toggle'
+
+  get '/home', to: 'home#index', as: 'home'
 end

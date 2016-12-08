@@ -10,7 +10,7 @@ HumiditySensorReading.create([{measurement: 12},{measurement: 1222},{measurement
 TemperatureSensorReading.create([{measurement: 12},{measurement: 1222},{measurement: 12},{measurement: 13412}])
 MoistureSensorReading.create([{measurement: 12},{measurement: 1222},{measurement: 12},{measurement: 13412}])
 Plant.create([{name: 'makahiya'}, {humidity_threshold: 112}, {temperature_threshold: 45}, {moisture_threshold: 565}])
-
+User.create([username: 'admin', password: 'lizlielovexley', password_confirmation: 'lizlielovexley'])
 SystemSettings.instance.update(
   moisture_threshold: 300,
   temperature_threshold: 28,
