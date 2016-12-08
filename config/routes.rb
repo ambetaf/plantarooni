@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/system_settings', to: 'system_settings#configuration', as: 'system_settings_configuration'
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
   post '/system_settings/toggle'
+  post '/system_settings/toggle_appliance'
 end

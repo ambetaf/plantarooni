@@ -42,6 +42,7 @@ class PlantsController < ApplicationController
   def update_threshold
     plant = Plant.find(params[:id])
     SystemSettings.instance.update(humidity_threshold: plant.humidity_threshold, moisture_threshold: plant.moisture_threshold, temperature_threshold: plant.temperature_threshold)
+    SystemSettings.check_sensors
     redirect_to '/', notice: "Update was successful! Your plant is " + plant.name
   end
 

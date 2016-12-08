@@ -4,11 +4,11 @@
   <!-- TODO: Put hide and show jquery -->
   <% if @manual_control %>
     <p>Sprinkler:
-    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, id: 'switch1' %>
+    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, class: 'switch', id: 'sprinkler' %>
     <p>Cooling Fan:
-    <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, id: 'switch2' %>
+    <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, class: 'switch', id: 'cooling_fan' %>
     <p>Exhaust Fan:
-    <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, id: 'switch3' %>
+    <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, class: 'switch', id: 'exhaust_fan' %>
   <% else %>
     <div class="group">
       <p>Moisture Threshold: <%= @moisture_threshold %></p>
