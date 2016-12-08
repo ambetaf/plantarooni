@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :plants
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'moisture_sensor_readings#index'
   get '/moisture_readings', to: 'moisture_sensor_readings#index', as: 'moisture_readings'
   get '/temperature_readings', to: 'temperature_sensor_readings#index', as: 'temperature_readings'
   get '/humidity_readings', to: 'humidity_sensor_readings#index', as: 'humidity_readings'
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   put '/system_settings', to: 'system_settings#update', as: 'system_settings_update'
   post '/system_settings/toggle'
 
-  get '/home', to: 'home#index', as: 'home'
+  get '/', to: 'home#index', as: 'home'
 
   post '/system_settings/toggle_appliance'
 
