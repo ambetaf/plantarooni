@@ -24,6 +24,24 @@ class SystemSettings < ApplicationRecord
     end
   end
 
+  def self.toggle(appliance)
+    a = self.instance
+    begin
+      case appliance
+      when 'sprinkler'
+        a.update(sprinkler_manual_on: !a.sprinkler_manual_on)
+        sprinkler.send(a.sprinkler_manual_on ? :on : :off)
+      when 'exhaust_fan'
+        a.update(exhaust_manual_on: !a.exhaust_manual_on)
+        exhaust_fan.send(a.exhaust_manual_on ? :on : :off)
+      when 'cooling_fan'
+        a.update(cooling_manual_on: !a.cooling_manual_on)
+        cooling_fan.send(a.cooling_manual_on ? :on : :off)
+      end
+    rescue Exception
+    end
+  end
+
   def self.toggle_manual_control
     self.instance.update(manual_control: !self.instance.manual_control)
     if self.instance.manual_control
@@ -39,12 +57,16 @@ class SystemSettings < ApplicationRecord
       rescue Exception
       end
     else
-      begin
-        sprinkler.send(MoistureSensorReading.last.measurement < SystemSettings.instance.moisture_threshold ? :on : :off)
-        cooling_fan.send(TemperatureSensorReading.last.measurement > SystemSettings.instance.temperature_threshold ? :on : :off)
-        exhaust_fan.send(HumiditySensorReading.last.measurement > SystemSettings.instance.humidity_threshold ? :on : :off)
-      rescue Exception
-      end
+      check_sensors
+    end
+  end
+
+  def self.check_sensors
+    begin
+      sprinkler.send(MoistureSensorReading.last.measurement < SystemSettings.instance.moisture_threshold ? :on : :off)
+      cooling_fan.send(TemperatureSensorReading.last.measurement > SystemSettings.instance.temperature_threshold ? :on : :off)
+      exhaust_fan.send(HumiditySensorReading.last.measurement > SystemSettings.instance.humidity_threshold ? :on : :off)
+    rescue Exception
     end
   end
 end

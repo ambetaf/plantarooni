@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   post '/system_settings/toggle'
 
   get '/home', to: 'home#index', as: 'home'
+
+  post '/system_settings/toggle_appliance'
+
 end
