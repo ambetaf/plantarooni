@@ -1,9 +1,6 @@
 <h1>Editing Plant</h1>
 
-<%= form_for(@plant) do |f| %>
-<%= render 'form'%>
-<%= submit_tag "Update Plant", :class => "button buttonBlue" %>
-<% end %>
+<%= render 'form', plant: @plant %>
 
 
 <%= link_to 'Show', @plant %> |
