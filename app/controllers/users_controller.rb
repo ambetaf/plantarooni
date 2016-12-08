@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # TODO: gago ka bert
+  # TODO: gago ka peng
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_login, only: [:index, :new, :create]
 
