@@ -14,7 +14,7 @@ begin
   DhtSensorJob.perform_async()
 
   moisture_sensor.when_data_received do |data|
-    if !moisture_sensor_time || Time.now - moisture_sensor_time > 5.seconds
+    if !moisture_sensor_time || Time.now - moisture_sensor_time > 5.minutes
       MoistureSensorReading.create(measurement: data)
       moisture_sensor_time = Time.now
       next if SystemSettings.instance.manual_control
