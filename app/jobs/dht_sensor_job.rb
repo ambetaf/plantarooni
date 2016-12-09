@@ -10,7 +10,7 @@ class DhtSensorJob
         cooling_fan.send(val.temp > SystemSettings.instance.temperature_threshold ? :on : :off)
         exhaust_fan.send(val.humidity > SystemSettings.instance.humidity_threshold ? :on : :off)
       end
-      sleep 5
+      sleep 300
     end
   end
 end
