@@ -48,6 +48,7 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
+  config.secret_key_base = '8c57f014b14228203fd7ef547ee508cbe1a4426a16f5b31082e0598625bd7715d03f8f203b54921b9d332bcdf87e37e58c7d4a724b59cc05234b80fa49f3ebe7'
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store

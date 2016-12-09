@@ -1,7 +1,7 @@
 class DhtSensorJob
   include SuckerPunch::Job
 
-  def perform(board, cooling_fan, exhaust_fan)
+  def perform(cooling_fan, exhaust_fan)
     while true
       val = DhtSensor.read(4, 11)
       TemperatureSensorReading.create(measurement: val.temp)
