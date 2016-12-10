@@ -6,10 +6,10 @@ end
 
 begin
   Board.board = Dino::Board.new(Dino::TxRx::Serial.new)
-  Board.moisture_sensor = Dino::Components::Sensor.new(pin: 'A0', board: board)
-  Board.sprinkler = Dino::Components::Led.new(pin: 13, board: board)
-  Board.cooling_fan = Dino::Components::Led.new(pin: 12, board: board)
-  Board.exhaust_fan = Dino::Components::Led.new(pin: 11, board: board)
+  Board.moisture_sensor = Dino::Components::Sensor.new(pin: 'A0', board: Board.board)
+  Board.sprinkler = Dino::Components::Led.new(pin: 13, board: Board.board)
+  Board.cooling_fan = Dino::Components::Led.new(pin: 12, board: Board.board)
+  Board.exhaust_fan = Dino::Components::Led.new(pin: 11, board: Board.board)
 
   DhtSensorJob.perform_async()
 
