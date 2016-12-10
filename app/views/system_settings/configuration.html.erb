@@ -1,14 +1,17 @@
-<%= form_tag system_settings_update_path, method: :put, class: "group" do %>
+<%= form_tag system_settings_update_path, method: :put do %>
   <p>Manual Override:
   <%= check_box_tag :manual_control, 'manual_control', @manual_control, id: 'override' %>
   <!-- TODO: Put hide and show jquery -->
+
   <% if @manual_control %>
+
     <p>Sprinkler:
-    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, class: 'switch', id: 'sprinkler' %>
+    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, class: 'switch pull-righ', id: 'sprinkler' %>
     <p>Cooling Fan:
-    <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, class: 'switch', id: 'cooling_fan' %>
+    <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, class: 'switch pull-right', id: 'cooling_fan' %>
     <p>Exhaust Fan:
-    <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, class: 'switch', id: 'exhaust_fan' %>
+    <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, class: 'switch pull-right', id: 'exhaust_fan' %>
+
   <% else %>
     <div class="group">
       <p>Moisture Threshold: <%= @moisture_threshold %></p>
@@ -21,7 +24,7 @@
       ) %>
     </div>
     <div class="group">
-      <p>Temperature Threshold: <%= @temperature_threshold %></p>
+      <p >Temperature Threshold: <%= @temperature_threshold %></p>
       Change Temperature Sensor Threshold:
       <%= text_field_tag(
         :temperature_threshold,
