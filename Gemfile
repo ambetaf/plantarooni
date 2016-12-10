@@ -58,3 +58,5 @@ platforms :mswin do
 end
 
 gem 'toastr-rails'
+
+gem 'will_paginate', '~> 3.1.1'
