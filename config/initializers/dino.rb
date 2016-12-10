@@ -11,16 +11,8 @@ begin
   Board.cooling_fan = Dino::Components::Led.new(pin: 12, board: Board.board)
   Board.exhaust_fan = Dino::Components::Led.new(pin: 11, board: Board.board)
 
-  DhtSensorJob.perform_async()
-
-  moisture_sensor.when_data_received do |data|
-    if !moisture_sensor_time || Time.now - moisture_sensor_time > 5.minutes
-      MoistureSensorReading.create(measurement: data)
-      moisture_sensor_time = Time.now
-      next if SystemSettings.instance.manual_control
-      Board.sprinkler.send(data.to_i < SystemSetting.instance.moisture_threshold ? :on : :off)
-    end
-  end
+  MoistureSensorJob.perform_async
+  DhtSensorJob.perform_async
 rescue Dino::BoardNotFound
 
 end
