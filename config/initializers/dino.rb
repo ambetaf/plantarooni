@@ -11,8 +11,9 @@ begin
   Board.cooling_fan = Dino::Components::Led.new(pin: 12, board: Board.board)
   Board.exhaust_fan = Dino::Components::Led.new(pin: 11, board: Board.board)
 
-  MoistureSensorJob.perform_async
   DhtSensorJob.perform_async
-rescue Dino::BoardNotFound
 
+  MoistureSensorJob.perform_async
+rescue Dino::BoardNotFound
+	puts 'huh?'
 end
