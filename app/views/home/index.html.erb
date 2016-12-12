@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   Current Moisture Sensor Reading  <%= @current_moisture.measurement %> ------ <%= @current_moisture.created_at %>
 </p>
 <p>
@@ -6,4 +6,82 @@
 </p>
 <p>
   Current Humidity Sensor Reading  <%= @current_humidity.measurement %> ------ <%= @current_humidity.created_at %>
-</p>
+</p> -->
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+
+            <div class="row">
+              <div class="col-xs-3">
+
+                <i class="ion-thermometer"></i>
+              </div>
+              <div class="col-xs-9 panel-element">
+                <div class>
+                  <h5>
+                    Current Temprature</h5>
+                </div>
+                <div class="huge">
+                  <h2><%= @current_humidity.measurement %></h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+
+                <i class="ion-android-cloud"></i>
+              </div>
+              <div class="col-xs-9 panel-element">
+                <div class>
+                  <h5>Current Humidity</h5>
+                </div>
+                <div class="huge">
+                  <h2><%= @current_moisture.measurement %></h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+
+                <i class="ion-waterdrop"></i>
+              </div>
+              <div class="col-xs-9 panel-element">
+                <div class>
+                  <h5>Current Moisture</h5>
+                </div>
+                <div class="huge">
+                  <h2><%= @current_moisture.measurement %></h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <img src="http://192.168.1.12:8080/?action=stream" height="50%" width="50%"/>
+    </div>
+  </div>
+</div>
+<div class="col-md-1"></div>
