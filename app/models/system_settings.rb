@@ -2,7 +2,7 @@ class SystemSettings < ApplicationRecord
   # The "singleton_guard" column is a unique column which must always be set to '0'
   # This ensures that only one AppSettings row is created
   validates_inclusion_of :singleton_guard, :in => [0]
-  after_update 'self.check_sensors'
+  after_update :check_sensors
 
   def self.instance
     # there will be only one row, and its ID must be '1'
@@ -51,7 +51,7 @@ class SystemSettings < ApplicationRecord
       rescue Exception
       end
     else
-      check_sensors
+      self.check_sensors
     end
   end
 
@@ -64,5 +64,11 @@ class SystemSettings < ApplicationRecord
       Board.exhaust_fan.send(HumiditySensorReading.last.measurement > a.humidity_threshold ? :on : :off)
     rescue Exception
     end
+  end
+
+private
+
+  def check_sensors
+    self.check_sensors
   end
 end
