@@ -5,6 +5,7 @@ class SystemSettingsController < ApplicationController
 
   def update
     if SystemSettings.instance.update(settings_params) # if success
+      SystemSettings.check_sensors
       redirect_to system_settings_configuration_path
       flash.now[:alert] = 'Failed to create plant'
     else # if not
