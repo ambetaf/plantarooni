@@ -31,6 +31,7 @@ class SystemSettings < ApplicationRecord
         Board.cooling_fan.send(a.cooling_manual_on ? :on : :off)
       end
     rescue Exception
+	puts "something wong happened"
     end
   end
 
