@@ -20,7 +20,7 @@ h3 {
   color: #4a89dc;
 }
 form {
-  width: 50%;
+  width: 80%;
   margin: 4em auto;
   padding: 3em 2em 2em 2em;
   background: #fafafa;
@@ -265,4 +265,27 @@ footer img:hover {
 }
 footer img:focus, footer a:focus {
   outline: none;
+}
+
+i.ion-thermometer {
+  font-size: 96px;
+}
+
+div.panel-element{
+  left: 0;
+   text-align: center;
+   bottom: 0;
+   width: 70%;
+}
+
+i.ion-android-cloud {
+  font-size: 96px;
+}
+
+i.ion-waterdrop {
+    font-size: 96px;
+}
+
+div.spacing-top{
+  margin-top: 5%;
 }
