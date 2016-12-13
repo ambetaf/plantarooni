@@ -26,7 +26,7 @@ gem 'bootstrap-sass'
 gem 'sucker_punch'
 gem 'bootstrap-switch-rails'
 
-gem 'dht-sensor-ffi'
+# gem 'dht-sensor-ffi'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
