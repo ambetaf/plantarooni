@@ -66,9 +66,14 @@ class SystemSettings < ApplicationRecord
     end
   end
 
-private
-
   def check_sensors
-    self.check_sensors
+    a = self.instance
+    return if a.manual_control
+    begin
+      Board.sprinkler.send(MoistureSensorReading.last.measurement < a.moisture_threshold ? :on : :off)
+      Board.cooling_fan.send(TemperatureSensorReading.last.measurement > a.temperature_threshold ? :on : :off)
+      Board.exhaust_fan.send(HumiditySensorReading.last.measurement > a.humidity_threshold ? :on : :off)
+    rescue Exception
+    end
   end
 end
