@@ -19,7 +19,7 @@ class SystemSettings < ApplicationRecord
 
   def self.toggle(appliance)
     a = self.instance
-    begin
+
       case appliance
       when 'sprinkler'
         a.update(sprinkler_manual_on: !a.sprinkler_manual_on)
@@ -31,9 +31,7 @@ class SystemSettings < ApplicationRecord
         a.update(cooling_manual_on: !a.cooling_manual_on)
         Board.cooling_fan.send(a.cooling_manual_on ? :on : :off)
       end
-    rescue Exception
-	puts "something wong happened"
-    end
+
   end
 
   def self.toggle_manual_control
@@ -65,8 +63,6 @@ class SystemSettings < ApplicationRecord
     rescue Exception
     end
   end
-
-private
 
   def check_sensors
     self.check_sensors
