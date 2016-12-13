@@ -16,7 +16,6 @@ html {
 body {
   min-height:100%;
    position:relative;
-   padding-bottom:[footer-height]
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block
