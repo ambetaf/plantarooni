@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
 
   get '/stream', to: 'home#stream', as: "stream"
+
 end

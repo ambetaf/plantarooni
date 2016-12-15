@@ -15,7 +15,7 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require bootstrap-switch
-//= require index
+//= require_tree .
 
 $(document).ready(function() {
 
