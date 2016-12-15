@@ -4,6 +4,12 @@ module Board
   end
 end
 
+module JobStopper
+  class << self
+    attr_accessor :stop_dht_sensor, :stop_moisture_sensor
+  end
+end
+
 begin
   Board.board = Dino::Board.new(Dino::TxRx::Serial.new)
   Board.moisture_sensor = Dino::Components::Sensor.new(pin: 'A0', board: Board.board)
@@ -14,6 +20,7 @@ begin
   moisture_sensor_time = Time.now
   counter = 0
   Board.moisture_sensor.when_data_received do |data|
+    ActionCable.server.broadcast 'moisture_sensor_channel', moisture: data
     if counter == 0 || Time.now - moisture_sensor_time > 5.minutes
       ActiveRecord::Base.connection_pool.with_connection do
         MoistureSensorReading.create(measurement: data)
@@ -24,7 +31,8 @@ begin
     end
   end
 
-  DhtSensorJob.perform_async
+  DhtSensorWorker.perform_async
+
 rescue Dino::BoardNotFound
 	puts 'huh?'
 end

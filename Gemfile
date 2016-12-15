@@ -22,11 +22,21 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 gem 'dino'
+
 gem 'bootstrap-sass'
-gem 'sucker_punch'
+
+gem 'sidekiq'
+
 gem 'bootstrap-switch-rails'
 
-gem 'dht-sensor-ffi'
+gem 'toastr-rails'
+
+gem 'will_paginate', '~> 3.1.1'
+
+gem "font-ionicons-rails"
+
+# gem 'dht-sensor-ffi'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -56,8 +66,3 @@ gem 'sorcery'
 platforms :mswin do
   gem "wdm", :group => [:development, :test, :production]
 end
-
-gem 'toastr-rails'
-
-gem 'will_paginate', '~> 3.1.1'
-gem "font-ionicons-rails"
