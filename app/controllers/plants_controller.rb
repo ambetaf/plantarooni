@@ -41,7 +41,7 @@ class PlantsController < ApplicationController
 
   def update_threshold
     plant = Plant.find(params[:id])
-    SystemSettings.instance.update(humidity_threshold: plant.humidity_threshold, moisture_threshold: plant.moisture_threshold, temperature_threshold: plant.temperature_threshold)
+    SystemSettings.update_thresholds(humidity_threshold: plant.humidity_threshold, moisture_threshold: plant.moisture_threshold, temperature_threshold: plant.temperature_threshold)
     unless SystemSettings.instance.manual_control
       SystemSettings.check_sensors
     end
