@@ -18,6 +18,4 @@ Rails.application.routes.draw do
   get '/', to: 'home#index', as: 'home'
 
   post '/system_settings/toggle_appliance'
-
-  mount ActionCable.server, at: '/cable'
 end
