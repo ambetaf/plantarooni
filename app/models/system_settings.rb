@@ -48,7 +48,7 @@ class SystemSettings < ApplicationRecord
       rescue Exception
       end
     else
-      check_sensors
+      self.check_sensors
     end
   end
 
@@ -59,5 +59,14 @@ class SystemSettings < ApplicationRecord
       Board.exhaust_fan.send(HumiditySensorReading.last.measurement > SystemSettings.instance.humidity_threshold ? :on : :off)
     rescue Exception
     end
+  end
+
+  def self.update_thresholds(moisture_threshold = 300, temperature_threshold = 28, humidity_threshold = 85)
+    self.instance.update(
+      moisture_threshold: moisture_threshold,
+      temperature_threshold: temperature_threshold,
+      humidity_threshold: humidity_threshold
+      )
+    self.check_sensors
   end
 end
