@@ -27,7 +27,7 @@
                     Current Temperature</h5>
                 </div>
                 <div class="huge">
-                  <h2><%= @current_temperature.measurement %></h2>
+                  <h2 id='current_temperature'><%= @current_temperature.measurement %></h2>
                 </div>
 
               </div>
@@ -48,7 +48,7 @@
                   <h5>Current Humidity</h5>
                 </div>
                 <div class="huge">
-                  <h2><%= @current_humidity.measurement %></h2>
+                  <h2 id="current_humidity"><%= @current_humidity.measurement %></h2>
                 </div>
 
               </div>
@@ -69,7 +69,7 @@
                   <h5>Current Moisture</h5>
                 </div>
                 <div class="huge">
-                  <h2><%= @current_moisture.measurement %></h2>
+                  <h2 id="current_moisture"><%= @current_moisture.measurement %></h2>
                 </div>
 
               </div>
@@ -85,3 +85,6 @@
   </div>
 </div>
 <div class="col-md-1"></div>
+
+<%= javascript_include_tag 'channels/dht_sensor', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'channels/moisture_sensor', 'data-turbolinks-track': 'reload' %>

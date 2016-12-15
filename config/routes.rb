@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   post '/system_settings/toggle_appliance'
 
+  mount ActionCable.server, at: '/cable'
 end
