@@ -24,7 +24,7 @@ begin
     end
   end
 
-  DhtSensorJob.perform_async
+  DhtSensorWorker.perform_async
 rescue Dino::BoardNotFound
 	puts 'huh?'
 end

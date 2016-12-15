@@ -1,5 +1,5 @@
-class DhtSensorJob
-  include SuckerPunch::Job
+class DhtSensorWorker
+  include Sidekiq::Worker
 
   def perform
     val = DhtSensor.read(4, 11)
@@ -11,6 +11,6 @@ class DhtSensorJob
         Board.exhaust_fan.send(val.humidity > SystemSettings.instance.humidity_threshold ? :on : :off)
       end
     end
-    DhtSensorJob.perform_in(300)
+    DhtSensorWorker.perform_in(300)
   end
 end
