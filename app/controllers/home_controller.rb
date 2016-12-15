@@ -5,4 +5,7 @@ class HomeController < ApplicationController
     @current_moisture = MoistureSensorReading.last
     @current_humidity = HumiditySensorReading.last
   end
+
+  def stream
+  end
 end

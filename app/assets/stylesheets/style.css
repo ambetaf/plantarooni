@@ -33,7 +33,7 @@ form {
 }
 input {
   font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  padding: 5px 5px 5px 1px;
   -webkit-appearance: none;
   display: block;
   background: #fafafa;
@@ -288,4 +288,26 @@ i.ion-waterdrop {
 
 div.spacing-top{
   margin-top: 5%;
+}
+
+.center-input {
+    width: 45%;
+    margin: 0 auto;
+
+}
+
+#streampadding{
+  margin-bottom: 10%;
+}
+
+input.systemsetting-width{
+  width: 20%;
+}
+
+.dropdown-menu.pull-center{
+   width: 20%;
+   margin-top: 20px;
+   margin-left: 40%;
+   margin-right: 60%;
+
 }

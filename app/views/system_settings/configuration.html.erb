@@ -1,48 +1,60 @@
-<%= form_tag system_settings_update_path, method: :put do %>
-  <p>Manual Override:
-  <%= check_box_tag :manual_control, 'manual_control', @manual_control, id: 'override' %>
-  <!-- TODO: Put hide and show jquery -->
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <%= form_tag system_settings_update_path, method: :put do %>
+    <h4>Manual Override</h4>
+    <div><%= check_box_tag :manual_control, 'manual_control', @manual_control, id: 'override' %></div>
+    <!-- TODO: Put hide and show jquery -->
 
-  <% if @manual_control %>
+    <% if @manual_control %>
 
-    <p>Sprinkler:
-    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, class: 'switch pull-righ', id: 'sprinkler' %>
-    <p>Cooling Fan:
+    <h4>Sprinkler</h4>
+    <%= check_box_tag :sprinkler_manual_on, :sprinkler_manual_on, @sprinkler_manual_on, class: 'switch checkbox-inline', id: 'sprinkler' %>
+    <h4>Cooling Fan</h4>
     <%= check_box_tag :cooling_manual_on, :cooling_manual_on, @cooling_manual_on, class: 'switch pull-right', id: 'cooling_fan' %>
-    <p>Exhaust Fan:
+    <h4>Exhaust Fan</h4>
     <%= check_box_tag :exhaust_manual_on, :exhaust_manual_on, @exhaust_manual_on, class: 'switch pull-right', id: 'exhaust_fan' %>
 
   <% else %>
+  <div class="spacing-top">
     <div class="group">
-      <p>Moisture Threshold: <%= @moisture_threshold %></p>
-      Change Moisture Sensor Threshold:
-      <%= text_field_tag(
-        :moisture_threshold,
-        params[:moisture_threshold],
-        value: @moisture_threshold,
-        class: ""
-      ) %>
+      <div><h4> Moisture Threshold </h4> </div>
+      <div><h4>  <%= @moisture_threshold %> </h4></div>
+        <div><h5> Change Moisture Threshold </h5> </div>
+      <div>  <%= text_field_tag(
+            :moisture_threshold,
+            params[:moisture_threshold],
+            value: @moisture_threshold,
+            class: "text-center center-input"
+          ) %> </div>
     </div>
     <div class="group">
-      <p >Temperature Threshold: <%= @temperature_threshold %></p>
-      Change Temperature Sensor Threshold:
-      <%= text_field_tag(
-        :temperature_threshold,
-        params[:temperature_threshold],
-        value: @temperature_threshold,
-        class: ""
-      ) %>
+    <div><h4> Temperature Threshold </h4></div>
+      <div><h4>  <%= @temperature_threshold %> </h4></div>
+    <div><h5>  Change Temp Threshold </h5></div>
+      <div class=""> <%= text_field_tag(
+            :temperature_threshold,
+            params[:temperature_threshold],
+            value: @temperature_threshold,
+            class: "text-center center-input"
+          ) %></div>
     </div>
     <div class="group">
-      <p>Humidity Threshold: <%= @humidity_threshold %></p>
-      Change Humidity Sensor Threshold:
-      <%= text_field_tag(
-        :humidity_threshold,
-        params[:humidity_threshold],
-        value: @humidity_threshold,
-        class: ""
-      ) %>
-    </div>
+    <div><h4>Humidity Threshold </h4></div>
+      <div><h4>  <%= @humidity_threshold %> </h4> </div>
+      <div> <h5> Change Humidity Threshold </h5> </div>
+      <div class=""><%= text_field_tag(
+            :humidity_threshold,
+            params[:humidity_threshold],
+            value: @humidity_threshold,
+            class: "text-center center-input"
+          ) %>
+        </div>
+    </div>  
+  </div>
     <%= submit_tag('Save Changes', :class => 'button buttonBlue') %>
-  <% end %>
-<% end %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div>
+</div>

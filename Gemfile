@@ -35,6 +35,8 @@ gem 'will_paginate', '~> 3.1.1'
 
 gem "font-ionicons-rails"
 
+gem "rack-protection"
+
 # gem 'dht-sensor-ffi'
 
 # Use Redis adapter to run Action Cable in production

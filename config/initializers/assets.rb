@@ -14,3 +14,5 @@ Rails.application.config.assets.precompile += %w( default.js )
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
 end
 Rails.application.config.assets.precompile += %w( channels/dht_sensor.js )
+Rails.application.config.assets.precompile += %w( channels/moisture_sensor.js )
+Rails.application.config.assets.precompile += %w( moisture_sensor_readings.css )
