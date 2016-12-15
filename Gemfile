@@ -35,10 +35,11 @@ gem 'will_paginate', '~> 3.1.1'
 
 gem "font-ionicons-rails"
 
-# gem 'dht-sensor-ffi'
+gem 'dht-sensor-ffi'
 
+gem 'faye-websocket', '~> 0.10.4'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
